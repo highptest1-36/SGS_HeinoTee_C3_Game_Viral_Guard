@@ -1,124 +1,124 @@
-# 🛡️ Viral Guard - Game Chống Tin Giả
+# 🛡️ Viral Guard - Misinformation Defense Game
 
-## 🎮 Giới thiệu
-**Viral Guard** là một trò chơi xã hội với cơ chế vai trò ẩn (hidden role) về chủ đề chống tin giả và sai lệch thông tin. Người chơi sẽ đóng vai các thành viên trong cộng đồng mạng xã hội, cùng nhau đối đầu với kẻ phá hoại đang cố gắng lan truyền tin giả.
+## 🎮 Introduction
+**Viral Guard** is a social deduction game with hidden roles focused on combating misinformation and fake news. Players take on the roles of community members in a social network, working together to stop saboteurs who are trying to spread misinformation.
 
-### ✨ Đặc điểm nổi bật
-- **Cơ chế vai trò ẩn** hấp dẫn kiểu Werewolf/Among Us
-- **Giao diện feed giống mạng xã hội** (Facebook/Instagram style)
-- **25+ thẻ tin tức** về các chủ đề thực tế ở Việt Nam
-- **Hệ thống kiểm chứng** với Fact-Checker tokens
-- **10 sự kiện ngẫu nhiên** làm thay đổi cục diện game
-- **Giáo dục 6 tín hiệu nhận biết** tin giả
-
----
-
-## 🎯 Mục tiêu trò chơi
-
-### Đội Cộng Đồng (Gác Cổng + Fact-Checker)
-Giữ **Viral Meter** dưới ngưỡng sau 6 vòng chơi bằng cách:
-- Gắn cờ tin giả
-- Kiểm chứng thông tin
-- Ngăn chặn lan truyền
-
-### Đội Phá Hoại (Clickbait/Giật Tít)
-Đẩy **Viral Meter** lên ngưỡng hoặc cao hơn bằng cách:
-- Chia sẻ tin giả
-- Khuấy sóng (ability bí mật)
-- Đánh lạc hướng người chơi khác
+### ✨ Key Features
+- **Hidden role mechanics** inspired by Werewolf/Among Us
+- **Social media feed interface** (Facebook/Instagram style)
+- **25+ news cards** about real-world topics in Vietnam
+- **Fact-checking system** with Fact-Checker tokens
+- **10 random events** that change the game dynamics
+- **Educational content** teaching 6 misinformation warning signs
 
 ---
 
-## 👥 Vai trò
+## 🎯 Game Objectives
 
-### 🛡️ Gác Cổng (Moderator)
-- **Số lượng:** 2-4 người (tùy số người chơi)
-- **Kỹ năng đặc biệt:** Gắn cờ chính xác sẽ giảm -2 Virality (thay vì -1)
-- **Objective:** Bảo vệ cộng đồng khỏi tin giả
+### Community Team (Moderators + Fact-Checker)
+Keep the **Viral Meter** below the threshold after 6 rounds by:
+- Flagging fake news
+- Fact-checking information
+- Preventing misinformation spread
+
+### Saboteur Team (Clickbait)
+Push the **Viral Meter** to the threshold or higher by:
+- Sharing fake news
+- Amplifying content (secret ability)
+- Misleading other players
+
+---
+
+## 👥 Roles
+
+### 🛡️ Moderator (Gác Cổng)
+- **Number:** 2-4 players (depends on total players)
+- **Special Ability:** Accurate flags reduce -2 Virality (instead of -1)
+- **Objective:** Protect the community from fake news
 
 ### ✅ Fact-Checker
-- **Số lượng:** 0-1 người (có thể tắt trong menu)
-- **Kỹ năng đặc biệt:** 
-  - 3-4 tokens kiểm chứng (tùy độ khó)
-  - Lật mở độ tin cậy của thẻ
-  - Debunk thành công sẽ giảm -2 Virality vòng sau
-- **Objective:** Hỗ trợ Gác Cổng bằng kiểm chứng khoa học
+- **Number:** 0-1 player (can be disabled in menu)
+- **Special Abilities:** 
+  - 3-4 fact-check tokens (depends on difficulty)
+  - Reveal credibility rating of cards
+  - Successful debunk reduces -2 Virality next round
+- **Objective:** Support Moderators with scientific verification
 
-### 🔥 Clickbait/Giật Tít
-- **Số lượng:** 1 người (vai trò ẩn)
-- **Kỹ năng đặc biệt:**
-  - Khuấy sóng: Mỗi vòng bí mật +1 Virality cho 1 thẻ ngẫu nhiên
-  - Lách kiểm chứng: 1 lần/game block 1 hành động fact-check
-  - Điểm thưởng: +2 điểm nếu thuyết phục người khác share tin sai
-- **Objective:** Đẩy Viral Meter lên ngưỡng
-
----
-
-## 🎲 Cách chơi
-
-### Chuẩn bị
-1. Chọn số người chơi (3-5 người)
-2. Chọn độ khó (Easy/Medium/Hard)
-3. Bật/tắt vai trò Fact-Checker
-4. Hệ thống sẽ ngẫu nhiên phân vai
-
-### Mỗi vòng chơi
-1. **Rút sự kiện:** Một event card được lật, ảnh hưởng đến vòng chơi
-2. **Rút 4 thẻ tin:** Hiển thị trên feed
-3. **Lượt chơi:** Mỗi người chơi chọn 1 hành động:
-   - **📢 Chia sẻ (Share):** Tăng Virality của thẻ lên Viral Meter
-   - **🚩 Gắn cờ (Flag):** Ngăn thẻ lan truyền, nếu đúng là tin giả → giảm Virality
-   - **✅ Kiểm chứng (Check):** Lật mở độ tin cậy, giải thích (tốn 1 token)
-4. **Tổng kết vòng:** Áp dụng hiệu ứng event, chuyển vòng tiếp theo
-
-### Kết thúc game
-- **Clickbait thắng:** Viral Meter ≥ ngưỡng
-- **Cộng đồng thắng:** Sau 6 vòng, Viral Meter < ngưỡng
+### 🔥 Clickbait
+- **Number:** 1 player (hidden role)
+- **Special Abilities:**
+  - Amplify: Each round secretly +1 Virality to 1 random card
+  - Dodge Check: Once per game, block 1 fact-check action
+  - Bonus Points: +2 points if convincing others to share fake news
+- **Objective:** Push Viral Meter to threshold
 
 ---
 
-## 📊 Thẻ tin
+## 🎲 How to Play
 
-Game có **25 thẻ tin** chia làm 4 loại:
+### Setup
+1. Select number of players (3-5 players)
+2. Choose difficulty (Easy/Medium/Hard)
+3. Enable/disable Fact-Checker role
+4. System will randomly assign roles
 
-### ❌ Tin giả (FALSE) - 10 thẻ
-Hoàn toàn bịa đặt, không có căn cứ khoa học
-- *Ví dụ: "Uống nước chanh diệt virus trong 24h"*
+### Each Round
+1. **Draw Event:** An event card is revealed, affecting the round
+2. **Draw 4 News Cards:** Displayed on the feed
+3. **Player Turns:** Each player chooses 1 action:
+   - **📢 Share:** Increase card's Virality to the Viral Meter
+   - **🚩 Flag:** Prevent card spread, if correctly flagged as fake → reduces Virality
+   - **✅ Fact-Check:** Reveal credibility rating with explanation (costs 1 token)
+4. **Round Summary:** Apply event effects, move to next round
+
+### Game End
+- **Clickbait Wins:** Viral Meter ≥ threshold
+- **Community Wins:** After 6 rounds, Viral Meter < threshold
+
+---
+
+## 📊 News Cards
+
+The game features **25 news cards** divided into 4 types:
+
+### ❌ Fake News (FALSE) - 10 cards
+Completely fabricated, no scientific basis
+- *Example: "Drinking lemon water kills virus in 24h"*
 - **Credibility:** 0-30%
 
-### ⚠️ Tin sai lệch (MISLEADING) - 7 thẻ
-Có yếu tố sự thật nhưng thiếu ngữ cảnh, phóng đại
-- *Ví dụ: "Ăn thịt gây ung thư" (thiếu ngữ cảnh WHO)*
+### ⚠️ Misleading News (MISLEADING) - 7 cards
+Contains some truth but lacks context, exaggerated
+- *Example: "Eating meat causes cancer" (missing WHO context)*
 - **Credibility:** 30-60%
 
-### ✅ Tin đúng (TRUE) - 5 thẻ
-Thông tin chính xác, có nguồn uy tín
-- *Ví dụ: "Rửa tay đúng cách phòng bệnh - WHO khuyến cáo"*
+### ✅ True News (TRUE) - 5 cards
+Accurate information from credible sources
+- *Example: "Proper handwashing prevents disease - WHO recommendation"*
 - **Credibility:** 70-100%
 
-### 😂 Tin châm biếm (SATIRE) - 2 thẻ
-Nội dung hài hước, mục đích giải trí
-- *Ví dụ: "Sinh viên sáng chế máy trì hoãn deadline"*
-- **Credibility:** 50% (trung lập)
+### 😂 Satire (SATIRE) - 2 cards
+Humorous content, entertainment purpose
+- *Example: "Students invent machine to postpone deadlines"*
+- **Credibility:** 50% (neutral)
 
 ---
 
-## 🔍 6 Tín hiệu Cảnh báo
+## 🔍 6 Warning Signs
 
-Game dạy người chơi nhận biết 6 tín hiệu của tin giả:
+The game teaches players to recognize 6 signs of fake news:
 
-1. **🎣 Tiêu đề giật tít** - Viết hoa, dấu chấm than nhiều
-2. **❓ Thiếu nguồn** - Không trích dẫn tổ chức uy tín
-3. **😱 Kích động cảm xúc** - Gây sợ hãi, phẫn nộ
-4. **📅 Thông tin lỗi thời** - Ảnh cũ, sự kiện cũ
-5. **🔢 Số liệu nghi ngờ** - Phóng đại, không kiểm chứng
-6. **🖼️ Hình ảnh không khớp** - Ảnh ghép, lấy từ sự kiện khác
+1. **🎣 Clickbait Headlines** - ALL CAPS, excessive exclamation marks
+2. **❓ Missing Sources** - No credible organization citations
+3. **😱 Emotional Manipulation** - Triggers fear, anger
+4. **📅 Outdated Information** - Old photos, old events
+5. **🔢 Suspicious Numbers** - Exaggerated, unverified statistics
+6. **🖼️ Mismatched Images** - Photoshopped, from different events
 
 ---
 
-## ⚙️ Độ khó
+## ⚙️ Difficulty Levels
 
-| Độ khó | Viral Threshold | Fact-Check Tokens |
+| Difficulty | Viral Threshold | Fact-Check Tokens |
 |--------|----------------|-------------------|
 | 😊 Easy | 18 | 4 |
 | 😐 Medium | 15 | 3 |
@@ -126,16 +126,16 @@ Game dạy người chơi nhận biết 6 tín hiệu của tin giả:
 
 ---
 
-## 🎨 Công nghệ
+## 🎨 Technology Stack
 
-- **HTML5** - Cấu trúc game
+- **HTML5** - Game structure
 - **CSS3** - Feed layout, animations
-- **Vanilla JavaScript** - Game logic, không dùng framework
-- **Module pattern** - Phân chia cards.js, events.js, roles.js
+- **Vanilla JavaScript** - Game logic, no frameworks
+- **Module pattern** - Separated cards.js, events.js, roles.js
 
 ---
 
-## 📂 Cấu trúc file
+## 📂 File Structure
 
 ```
 game_app/
@@ -149,55 +149,55 @@ game_app/
 
 ---
 
-## 🚀 Cách chạy
+## 🚀 How to Run
 
-1. Mở file `index.html` trên trình duyệt
-2. Không cần server, chạy được offline
-3. Khuyến nghị: Chrome/Edge/Firefox phiên bản mới
-
----
-
-## 🎓 Thông điệp giáo dục
-
-### Người chơi học được:
-- Nhận biết 6 tín hiệu tin giả
-- Tầm quan trọng của kiểm chứng
-- Cách tin giả lan truyền (virality mechanics)
-- Suy nghĩ phản biện trước khi chia sẻ
-- Ảnh hưởng của tin giả đến cộng đồng
-
-### Ứng dụng thực tế:
-- Pause trước khi share
-- Kiểm tra nguồn tin
-- Sử dụng công cụ fact-check (Google Reverse Image, VAFC.org.vn)
-- Báo cáo tin giả cho platform
+1. Open `index.html` in a web browser
+2. No server required, runs offline
+3. Recommended: Chrome/Edge/Firefox (latest versions)
 
 ---
 
-## 🏆 Điểm số
+## 🎓 Educational Message
 
-- **Share tin giả (Clickbait):** +2 điểm
-- **Gắn cờ chính xác:** +3 điểm
-- **Debunk thành công:** +4 điểm
-- **Kiểm chứng tin đúng:** +1 điểm
+### Players Will Learn:
+- Recognize 6 signs of fake news
+- Importance of fact-checking
+- How misinformation spreads (virality mechanics)
+- Critical thinking before sharing
+- Impact of fake news on communities
 
----
-
-## 👨‍💻 Tác giả
-
-Dự án được phát triển cho hackathon với chủ đề "Educational Game về Misinformation".
-
----
-
-## 📝 Ghi chú
-
-- Game đơn giản hóa để dễ chơi (6 vòng, 25 thẻ)
-- AI players dùng logic cơ bản (không ML)
-- Có thể mở rộng: Multiplayer online, Database thẻ, Analytics
+### Real-World Applications:
+- Pause before sharing
+- Check information sources
+- Use fact-checking tools (Google Reverse Image, VAFC.org.vn)
+- Report fake news to platforms
 
 ---
 
-## 🔗 Tài liệu tham khảo
+## 🏆 Scoring
+
+- **Share fake news (Clickbait):** +2 points
+- **Accurate flag:** +3 points
+- **Successful debunk:** +4 points
+- **Fact-check true news:** +1 point
+
+---
+
+## 👨‍💻 Authors
+
+Project developed for a hackathon with the theme "Educational Game about Misinformation".
+
+---
+
+## 📝 Notes
+
+- Game simplified for easy play (6 rounds, 25 cards)
+- AI players use basic logic (no ML)
+- Can be extended: Multiplayer online, Database of cards, Analytics
+
+---
+
+## 🔗 References
 
 - WHO Infodemic Management
 - First Draft News - Essential Guide to Understanding Misinformation
@@ -206,4 +206,4 @@ Dự án được phát triển cho hackathon với chủ đề "Educational Gam
 
 ---
 
-**Hãy chơi, học hỏi, và lan tỏa thông điệp: "PAUSE trước khi SHARE!"** 🛡️
+**Play, learn, and spread the message: "PAUSE before you SHARE!"** 🛡️
