@@ -1,0 +1,144 @@
+# Concept Generation Prompts
+
+## Initial Concept Development
+
+### Prompt 1: Game Genre & Mechanics
+```
+Based on the guidance document "chidan.md", design a hidden role social deduction game about fighting misinformation. The game should:
+- Have 3-5 players with asymmetric roles (Moderators vs Clickbait traitor)
+- Use a feed-style card system mimicking social media
+- Track Viral Meter (lose condition) and Trust Meter (community health)
+- Include Fact-Checker support role with limited tokens
+- Feature 6 rounds with event cards that modify gameplay
+- Educational focus on recognizing misinformation signals
+```
+
+### Prompt 2: Educational Integration
+```
+How can we integrate educational content about misinformation into engaging gameplay?
+- 6 red flag signals (sensational headlines, no sources, emotional manipulation, etc.)
+- Real Vietnamese context (health myths, digital scams, climate disinfo)
+- Balance between fun gameplay and learning objectives
+- Post-game reflection on "What did you learn?"
+```
+
+### Prompt 3: Visual Style & UI
+```
+Design a modern, beautiful UI for a browser-based card game about misinformation:
+- Feed layout similar to Instagram/Facebook (familiar to users)
+- Color coding for roles (green=Moderator, blue=Fact-Checker, red=Clickbait)
+- Dual meter system with animated fills
+- Modal-based action selection
+- Mobile-responsive grid layout
+```
+
+## Game Mechanics Refinement
+
+### Prompt 4: Role Asymmetry
+```
+Design 3 asymmetric roles for a social deduction game:
+1. Moderator (2-4 players) - Flag bonus, team player
+2. Fact-Checker (0-1 player) - Limited tokens, reveals credibility
+3. Clickbait (1 player) - Secret virality boost, 1x block ability
+
+Ensure each role feels unique but balanced. Clickbait should have tools to win solo against the team.
+```
+
+### Prompt 5: Card Design System
+```
+Create a data structure for 25 misinformation cards with:
+- Credibility score (0-100)
+- Type (false, misleading, true, satire)
+- Base virality (1-3)
+- Red flag signals array (which of the 6 signals apply)
+- Reveal text (educational explanation)
+- Action hint (what players should do)
+- Source hint (how to verify)
+
+Focus on Vietnamese context and diverse topics.
+```
+
+### Prompt 6: Event Cards System
+```
+Design 10 event cards that modify gameplay each round:
+- Positive events (Media Literacy Week -1 virality)
+- Negative events (Rumor Storm +1 virality)
+- Conditional events (Algorithm prioritizes local news)
+- Disruptive events (Internet outage blocks fact-checking)
+
+Events should create dynamic, unpredictable gameplay while staying thematic.
+```
+
+## Content Generation
+
+### Prompt 7: Vietnamese Misinformation Examples
+```
+Generate 20 realistic Vietnamese misinformation headlines covering:
+- Health (miracle cures, vaccine myths)
+- Climate/Environment (misleading photos, false data)
+- Digital scams (fake apps, phishing)
+- Technology conspiracies (5G, microchips)
+- Consumer issues (scam products)
+
+Each should be recognizable but educational. Include credibility analysis.
+```
+
+### Prompt 8: How to Play Instructions
+```
+Write clear, concise game instructions for:
+- Setup (player count, difficulty, role reveal)
+- Turn structure (draw event → draw cards → players act)
+- Actions (Share, Flag, Check with consequences)
+- Win conditions (Clickbait vs Team)
+- Scoring system
+
+Should be understandable by ages 14+ without prior gaming experience.
+```
+
+## Technical Specifications
+
+### Prompt 9: State Management
+```
+Design a game state object for a 6-round card game with:
+- Player tracking (roles, scores, current turn)
+- Deck management (cards, used pile, shuffle)
+- Meter tracking (viral, trust)
+- Event system (deck, current event, effects)
+- Action history log
+- Screen navigation (menu, role reveal, play, results)
+```
+
+### Prompt 10: AI Player Logic
+```
+Implement simple but believable AI for 3 roles:
+- Moderator AI: 70% flag suspicious cards, 30% share
+- Fact-Checker AI: Use tokens on unchecked cards, flag when no tokens
+- Clickbait AI: Share low credibility cards, pretend to be team player
+
+Should feel natural without complex ML.
+```
+
+## Iteration & Refinement
+
+### Prompt 11: Difficulty Balancing
+```
+Balance 3 difficulty levels:
+- Easy: Higher viral threshold (18), more tokens (4)
+- Medium: Standard threshold (15), standard tokens (3)
+- Hard: Lower threshold (12), same tokens (3)
+
+Test if Clickbait can realistically win in each mode.
+```
+
+### Prompt 12: Educational Outcomes
+```
+Ensure game teaches:
+1. Pause before sharing
+2. Check sources and credibility
+3. Recognize emotional manipulation
+4. Use fact-checking tools
+5. Consider context (old photos, missing data)
+6. Report misinformation
+
+Integrate naturally into gameplay, not lecturing.
+```

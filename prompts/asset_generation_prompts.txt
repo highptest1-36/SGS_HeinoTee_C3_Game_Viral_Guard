@@ -1,0 +1,370 @@
+# Asset Generation Prompts
+
+## Icons & Emojis
+
+### Prompt 1: Role Icons
+```
+Select appropriate emojis for game roles:
+- Moderator: 🛡️ (shield - protection, defense)
+- Fact-Checker: ✅ (check mark - verification, truth)
+- Clickbait: 🔥 (fire - viral, spreading, chaos)
+
+These icons will appear throughout UI - role reveal, player list, scoreboard.
+```
+
+### Prompt 2: Action Icons
+```
+Choose emojis for 3 core actions:
+- Share: 📢 (megaphone - broadcast, spread)
+- Flag: 🚩 (red flag - warning, report)
+- Check: ✅ (check mark - verify, fact-check)
+
+Should be instantly recognizable and intuitive.
+```
+
+### Prompt 3: Event Icons
+```
+Assign emojis to 10 event types:
+- Bão tin đồn: 🌪️ (tornado - chaos)
+- Tuần lễ truyền thông: 📚 (books - education)
+- KOL chia sẻ: ⭐ (star - influencer)
+- Thuật toán: 🇻🇳 (flag - local/regional)
+- Cúp mạng: 📡 (satellite - connectivity)
+- Fact-checker độc lập: ✅ (check - verification)
+- Breaking News: 📰 (newspaper - news)
+- Bot tấn công: 🤖 (robot - automation)
+- Người dùng tỉnh táo: 🧠 (brain - critical thinking)
+- Sự kiện bình thường: 😌 (calm - normal)
+```
+
+### Prompt 4: Meter Icons
+```
+Select meter indicators:
+- Viral Meter: 🔥 (fire - trending, spreading)
+- Trust Meter: 🛡️ (shield - protection, safety)
+- Fact-Check Tokens: 🎫 (ticket - limited resource)
+
+These appear in header and throughout gameplay.
+```
+
+## Color Palette
+
+### Prompt 5: Role Color Scheme
+```
+Design color palette for 3 roles (must be distinct and accessible):
+
+Moderator (Good team, protective):
+- Primary: #10b981 (emerald green)
+- Light: #34d399
+- Dark: #059669
+
+Fact-Checker (Good team, analytical):
+- Primary: #3b82f6 (blue)
+- Light: #60a5fa
+- Dark: #2563eb
+
+Clickbait (Evil, destructive):
+- Primary: #ef4444 (red)
+- Light: #f87171
+- Dark: #dc2626
+
+Ensure WCAG AAA contrast on white background.
+```
+
+### Prompt 6: UI Color System
+```
+Supporting colors for interface:
+
+Background:
+- Main: #1a1a2e (dark navy - reduces eye strain)
+- Card: #16213e (slightly lighter)
+- Modal backdrop: rgba(0,0,0,0.8)
+
+Accent:
+- Warning: #f59e0b (amber - flagged cards)
+- Success: #10b981 (green - correct actions)
+- Danger: #ef4444 (red - viral meter)
+- Info: #3b82f6 (blue - checked cards)
+
+Text:
+- Primary: #ffffff
+- Secondary: #9ca3af (gray-400)
+- Muted: #6b7280 (gray-500)
+```
+
+### Prompt 7: Meter Gradients
+```
+Design gradient animations for meters:
+
+Viral Meter (danger, heat):
+- Start: #f59e0b (amber-500)
+- Mid: #f97316 (orange-500)
+- End: #ef4444 (red-500)
+- Animation: pulse when > 80%
+
+Trust Meter (safety, calm):
+- Start: #10b981 (emerald-500)
+- Mid: #34d399 (emerald-400)
+- End: #6ee7b7 (emerald-300)
+- Animation: glow when high
+```
+
+## Typography
+
+### Prompt 8: Font Selection
+```
+Choose font stack for different UI elements:
+
+Headings (bold, attention-grabbing):
+- Font: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif
+- Weight: 700
+- Letter-spacing: -0.02em
+
+Body Text (readable, Vietnamese diacritics support):
+- Font: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif
+- Weight: 400
+- Line-height: 1.6
+
+Card Titles (emphasis, scannable):
+- Font: inherit
+- Weight: 600
+- Size: 1.1rem
+- Transform: none (preserve case)
+
+Monospace (scores, numbers):
+- Font: "SF Mono", Monaco, "Cascadia Code", monospace
+- Use for: Credibility scores, viral counts
+```
+
+## Visual Effects
+
+### Prompt 9: Card Hover States
+```
+Design hover and interaction states for feed cards:
+
+Normal state:
+- Transform: scale(1)
+- Box-shadow: 0 2px 8px rgba(0,0,0,0.1)
+- Border: 2px solid transparent
+
+Hover state:
+- Transform: scale(1.02)
+- Box-shadow: 0 8px 16px rgba(0,0,0,0.2)
+- Border: 2px solid #3b82f6 (blue)
+- Transition: 0.3s ease
+
+Selected state:
+- Border: 3px solid var(--role-color)
+- Box-shadow: 0 0 20px rgba(var(--role-color-rgb), 0.5)
+- Glow effect
+
+Flagged state:
+- Background: rgba(239, 68, 68, 0.1) (red tint)
+- Border-left: 4px solid #ef4444
+
+Checked state:
+- Background: rgba(59, 130, 246, 0.1) (blue tint)
+- Border-left: 4px solid #3b82f6
+```
+
+### Prompt 10: Modal Animations
+```
+Create smooth modal transitions:
+
+Entrance:
+- Backdrop: fade in (0.3s ease)
+- Modal: slide up from translateY(20px) + fade in (0.3s ease-out)
+
+Exit:
+- Modal: fade out (0.2s ease-in)
+- Backdrop: fade out (0.2s ease-in, delay 0.1s)
+
+Timing function: cubic-bezier(0.4, 0, 0.2, 1)
+```
+
+### Prompt 11: Meter Fill Animation
+```
+Animate meter bars on value change:
+
+Width transition:
+- Duration: 0.5s
+- Timing: cubic-bezier(0.4, 0, 0.2, 1)
+- Ease: smooth acceleration
+
+Pulse effect (near threshold):
+- Animation: pulse 1.5s ease-in-out infinite
+- Keyframes: scale 1 → 1.05 → 1
+- Opacity: 1 → 0.9 → 1
+
+Gradient movement:
+- Background-position animation
+- Create "flowing" effect
+```
+
+## UI Components
+
+### Prompt 12: Button Styles
+```
+Design 4 button variants:
+
+Primary (Start Game, Confirm Action):
+- Background: var(--role-color)
+- Padding: 12px 24px
+- Border-radius: 8px
+- Font-weight: 600
+- Hover: brightness(1.1)
+- Active: scale(0.98)
+
+Secondary (Cancel, Back):
+- Background: transparent
+- Border: 2px solid #6b7280
+- Color: #9ca3af
+- Hover: border-color #ffffff
+
+Player Count (selector):
+- Border: 2px solid #374151
+- Background: #1f2937
+- Selected: border-color var(--role-color), background rgba(var(--role-color-rgb), 0.1)
+
+Difficulty (Easy/Medium/Hard):
+- Easy: border-color #10b981 when selected
+- Medium: border-color #f59e0b when selected
+- Hard: border-color #ef4444 when selected
+```
+
+### Prompt 13: Card Layout Grid
+```
+Design responsive grid for feed cards:
+
+Desktop (> 768px):
+- Grid: 2 columns
+- Gap: 20px
+- Card width: ~400px
+
+Tablet (480px - 768px):
+- Grid: 2 columns
+- Gap: 16px
+- Smaller card width
+
+Mobile (< 480px):
+- Grid: 1 column
+- Gap: 12px
+- Full width cards
+- Reduce padding
+
+Always maintain aspect ratio and readability.
+```
+
+## Iconography & Signals
+
+### Prompt 14: 6 Red Flag Indicators
+```
+Design visual indicators for misinformation signals:
+
+1. 🎣 Tiêu đề giật tít - Fishing hook (bait)
+2. ❓ Thiếu nguồn - Question mark (unknown)
+3. 😱 Kích động cảm xúc - Fearful face (emotion)
+4. 📅 Thông tin lỗi thời - Calendar (outdated)
+5. 🔢 Số liệu nghi ngờ - Numbers (suspicious data)
+6. 🖼️ Hình ảnh không khớp - Frame (mismatched image)
+
+Display in "How to Play" screen and card reveals.
+```
+
+### Prompt 15: Topic Tags
+```
+Design topic tag badges for cards:
+
+Visual style:
+- Border-radius: 16px (pill shape)
+- Padding: 4px 12px
+- Font-size: 0.85rem
+- Font-weight: 500
+- Position: Top-left of card
+
+Topic colors:
+- Sức khỏe (Health): #ec4899 (pink)
+- Môi trường (Environment): #10b981 (green)
+- Công nghệ (Tech): #3b82f6 (blue)
+- Xã hội (Society): #f59e0b (amber)
+- Kinh tế (Economy): #8b5cf6 (purple)
+```
+
+## Accessibility Assets
+
+### Prompt 16: Screen Reader Labels
+```
+Add ARIA labels and alt text:
+
+Role reveal:
+- aria-label="Your role is {role_name}"
+- Describe abilities in accessible format
+
+Action buttons:
+- aria-label="Share this card to increase viral meter"
+- Include consequences in description
+
+Meters:
+- aria-valuenow, aria-valuemin, aria-valuemax
+- aria-label="Viral meter at {value} out of {threshold}"
+
+Cards:
+- aria-label="Card: {title}, credibility {score}%, {flagged/checked status}"
+```
+
+### Prompt 17: Focus Indicators
+```
+Ensure keyboard navigation visibility:
+
+All interactive elements:
+- Focus ring: 2px solid #3b82f6
+- Offset: 2px
+- Border-radius: inherit
+
+Skip to main content:
+- Hidden visually but available to screen readers
+- Visible on :focus
+
+Tab order:
+- Logical flow: Menu → Cards → Actions → Modals
+```
+
+## Placeholder Content
+
+### Prompt 18: Loading States
+```
+Design loading/empty states:
+
+Deck shuffling:
+- Icon: 🔀 (shuffle)
+- Text: "Đang xáo bài..."
+- Animation: rotate 360deg 1s infinite
+
+No cards:
+- Icon: 📭 (empty mailbox)
+- Text: "Hết thẻ rồi, đang xáo lại..."
+
+Waiting for AI:
+- Icon: 🤖
+- Text: "{AI_name} đang suy nghĩ..."
+- Animated dots: . → .. → ... → .
+```
+
+## Export Specifications
+
+### Prompt 19: Asset Delivery Format
+```
+All assets embedded in code:
+- Icons: Unicode emojis (no image files)
+- Colors: CSS variables in :root
+- Fonts: System font stack (no web fonts)
+- Effects: Pure CSS animations
+
+Benefits:
+- No external dependencies
+- Works offline
+- Fast loading
+- Easy to modify
+```
+
+This game uses only code-based assets (CSS, emojis, system fonts) with no external images or icon libraries required. Perfect for hackathon submission and offline play.

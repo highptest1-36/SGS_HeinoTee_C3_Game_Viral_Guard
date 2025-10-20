@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Viral Guard - Bảo vệ cộng đồng khỏi tin giả</title>
+    <meta name="description" content="Game nhập vai về chống tin giả - Bạn là Gác Cổng hay Giật Tít?">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Language Selector (Fixed position) -->
+    <div class="language-selector">
+        <span data-i18n="language">🌐 Ngôn ngữ:</span>
+        <button class="language-btn active" data-lang="vi">🇻🇳 Tiếng Việt</button>
+        <button class="language-btn" data-lang="en">🇬🇧 English</button>
+    </div>
+    <!-- Menu Screen -->
+    <section id="menu-screen" class="screen active">
+        <div class="container">
+            <div class="logo-section">
+                <div class="game-logo">
+                    <span class="icon-shield">🛡️</span>
+                    <h1 data-i18n="gameTitle">VIRAL GUARD</h1>
+                </div>
+                <p class="tagline" data-i18n="tagline">Bảo vệ cộng đồng khỏi tin giả</p>
+                <p class="subtitle" data-i18n="subtitle">Game nhập vai - Hidden Role Social Deduction</p>
+            </div>
+            
+            <div class="game-info-box">
+                <h3 data-i18n="aboutGame">🎭 Về Game</h3>
+                <p><strong data-i18n="objective">Mục tiêu:</strong> <span data-i18n="objectiveText">Giữ <strong>Đồng hồ Lan truyền</strong> (Viral Meter) dưới ngưỡng nguy hiểm!</span></p>
+                <p><strong data-i18n="warning">Cảnh báo:</strong> <span data-i18n="warningText">Có 1 người là <strong>Giật Tít</strong> (traitor) đang cố phá game!</span></p>
+                <p><strong data-i18n="timeInfo">Thời gian:</strong> <span data-i18n="timeText">10-15 phút | <strong>Người chơi:</strong> 3-5 người</span></p>
+            </div>
+            
+            <div class="player-setup">
+                <h3 data-i18n="gameSetup">⚙️ Thiết lập game</h3>
+                <div class="setup-row">
+                    <label data-i18n="numPlayers">Số người chơi:</label>
+                    <div class="button-group">
+                        <button class="player-count-btn" data-players="3">3</button>
+                        <button class="player-count-btn selected" data-players="4">4</button>
+                        <button class="player-count-btn" data-players="5">5</button>
+                    </div>
+                </div>
+                <div class="setup-row">
+                    <label data-i18n="difficulty">Độ khó:</label>
+                    <div class="button-group">
+                        <button class="difficulty-btn" data-difficulty="easy" data-i18n="difficultyEasy">Dễ</button>
+                        <button class="difficulty-btn selected" data-difficulty="medium" data-i18n="difficultyMedium">Chuẩn</button>
+                        <button class="difficulty-btn" data-difficulty="hard" data-i18n="difficultyHard">Khó</button>
+                    </div>
+                </div>
+                <div class="setup-row checkbox-row">
+                    <label>
+                        <input type="checkbox" id="factchecker-toggle" checked>
+                        <span data-i18n="enableFactChecker">Bật vai Fact-Checker (khuyến nghị)</span>
+                    </label>
+                </div>
+            </div>
+            
+            <nav class="main-nav">
+                <button class="btn btn-primary btn-lg" id="start-btn">
+                    <span></span> <span data-i18n="startButton">Bắt đầu Game</span>
+                </button>
+                <button class="btn btn-secondary btn-lg" id="how-to-play-btn">
+                    <span></span> <span data-i18n="howToPlayButton">Cách Chơi</span>
+                </button>
+            </nav>
+            
+            <footer class="credits">
+                <p data-i18n="credits">🎓 Made for RMIT Hackathon 2024 | Theme: Digital Safety & Misinformation</p>
+            </footer>
+        </div>
+    </section>
+
+    <!-- How to Play Screen -->
+    <section id="howtoplay-screen" class="screen">
+        <div class="container">
+            <button class="btn-back" id="back-to-menu-btn" data-i18n="backButton">← Quay lại</button>
+            
+            <h2 data-i18n="howToPlayTitle">📖 Cách Chơi Viral Guard</h2>
+            
+            <div class="howto-section">
+                <h3 data-i18n="playObjective">🎯 Mục tiêu chơi</h3>
+                <div class="roles-grid">
+                    <div class="role-card moderator">
+                        <h4 data-i18n="moderatorRoleCard">🛡️ Gác Cổng (Moderators)</h4>
+                        <p><strong data-i18n="objective">Mục tiêu:</strong> <span data-i18n="moderatorObjective">Giữ Viral Meter < ngưỡng sau 6 vòng</span></p>
+                        <p><strong data-i18n="mission">Nhiệm vụ:</strong> <span data-i18n="moderatorMission">Gắn cờ tin sai, debunk hiệu quả</span></p>
+                    </div>
+                    <div class="role-card factchecker">
+                        <h4 data-i18n="factCheckerRoleCard">✅ Fact-Checker</h4>
+                        <p><strong data-i18n="objective">Mục tiêu:</strong> <span data-i18n="factCheckerObjective">Hỗ trợ Gác Cổng thắng</span></p>
+                        <p><strong data-i18n="power">Quyền năng:</strong> <span data-i18n="factCheckerPower">3-4 token kiểm chứng, lật nguồn tin</span></p>
+                    </div>
+                    <div class="role-card clickbait">
+                        <h4 data-i18n="clickbaitRoleCard">🔥 Giật Tít (Traitor)</h4>
+                        <p><strong data-i18n="objective">Mục tiêu:</strong> <span data-i18n="clickbaitObjective">Đẩy Viral Meter ≥ ngưỡng</span></p>
+                        <p><strong data-i18n="power">Quyền năng:</strong> <span data-i18n="clickbaitPower">Bí mật +1 virality, chặn 1 fact-check/game</span></p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="howto-section">
+                <h3 data-i18n="roundRules">🎮 Luật chơi từng vòng</h3>
+                <ol class="steps-list">
+                    <li><strong data-i18n="step1Title">Rút thẻ tin:</strong> <span data-i18n="step1Desc">4 thẻ tin xuất hiện trong feed (ẩn độ tin cậy)</span></li>
+                    <li><strong data-i18n="step2Title">Quan sát tín hiệu:</strong> <span data-i18n="step2Desc">URL lạ? ALL CAPS? Thiếu nguồn? Ảnh mờ?</span></li>
+                    <li><strong data-i18n="step3Title">Chọn hành động:</strong> <span data-i18n="step3Desc">Mỗi người chọn 1 thẻ để:</span>
+                        <ul>
+                            <li><strong>📢 <span data-i18n="actionShareTitle">Share:</span></strong> <span data-i18n="actionShareDesc">Khuếch tán (+virality, +điểm nếu tin đúng)</span></li>
+                            <li><strong>🚩 <span data-i18n="actionFlagTitle">Flag:</span></strong> <span data-i18n="actionFlagDesc">Gắn cờ (chặn lan truyền vòng này)</span></li>
+                            <li><strong>✅ <span data-i18n="actionCheckTitle">Check:</span></strong> <span data-i18n="actionCheckDesc">Kiểm chứng (tốn 1 token, lật nguồn)</span></li>
+                        </ul>
+                    </li>
+                    <li><strong data-i18n="step4Title">Giải quyết:</strong> <span data-i18n="step4Desc">Tính toán virality, cập nhật meter</span></li>
+                    <li><strong data-i18n="step5Title">Sự kiện:</strong> <span data-i18n="step5Desc">Lật 1 thẻ sự kiện (Bão tin đồn, KOL chia sẻ...)</span></li>
+                    <li><strong data-i18n="step6Title">Kết thúc vòng:</strong> <span data-i18n="step6Desc">Chuyển sang vòng tiếp theo (tổng 6 vòng)</span></li>
+                </ol>
+            </div>
+            
+            <div class="howto-section">
+                <h3 data-i18n="signalsTitle">🚩 6 Tín hiệu nhận biết tin giả</h3>
+                <div class="signals-grid">
+                    <div class="signal-item">
+                        <span class="signal-icon">⚡</span>
+                        <strong data-i18n="signal1Title">ALL CAPS / Khẩn cấp</strong>
+                        <p data-i18n="signal1Desc">Tạo áp lực, ép click</p>
+                    </div>
+                    <div class="signal-item">
+                        <span class="signal-icon">🔗</span>
+                        <strong data-i18n="signal2Title">URL lạ / Rút gọn</strong>
+                        <p data-i18n="signal2Desc">Domain không chính thống</p>
+                    </div>
+                    <div class="signal-item">
+                        <span class="signal-icon">🎁</span>
+                        <strong data-i18n="signal3Title">Quá tốt để thật</strong>
+                        <p data-i18n="signal3Desc">Biệt dược kỳ diệu, quà miễn phí</p>
+                    </div>
+                    <div class="signal-item">
+                        <span class="signal-icon">📸</span>
+                        <strong data-i18n="signal4Title">Ảnh cũ tái đăng</strong>
+                        <p data-i18n="signal4Desc">Không ghi mốc thời gian</p>
+                    </div>
+                    <div class="signal-item">
+                        <span class="signal-icon">❓</span>
+                        <strong data-i18n="signal5Title">Thiếu nguồn</strong>
+                        <p data-i18n="signal5Desc">Không nêu nghiên cứu, tác giả</p>
+                    </div>
+                    <div class="signal-item">
+                        <span class="signal-icon">⚠️</span>
+                        <strong data-i18n="signal6Title">Số liệu phóng đại</strong>
+                        <p data-i18n="signal6Desc">Khái quát hóa, quá lời</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="howto-section">
+                <h3 data-i18n="winConditionsTitle">🏆 Điều kiện thắng/thua</h3>
+                <ul>
+                    <li><strong data-i18n="goodTeamWin">Gác Cổng + Fact-Checker thắng:</strong> <span data-i18n="goodTeamWinDesc">Viral Meter < ngưỡng sau 6 vòng</span></li>
+                    <li><strong data-i18n="clickbaitWin">Giật Tít thắng:</strong> <span data-i18n="clickbaitWinDesc">Viral Meter ≥ ngưỡng bất kỳ lúc nào</span></li>
+                    <li><strong data-i18n="instantLoss">Thua tức thì:</strong> <span data-i18n="instantLossDesc">Viral Meter đạt 20 (bùng phát)</span></li>
+                </ul>
+            </div>
+            
+            <button class="btn btn-primary btn-lg" id="start-from-howto-btn" data-i18n="startPlayingButton">Bắt đầu chơi!</button>
+        </div>
+    </section>
+
+    <!-- Role Assignment Screen -->
+    <section id="roleassign-screen" class="screen">
+        <div class="container">
+            <h2 data-i18n="roleAssignTitle">🎭 Phân vai bí mật</h2>
+            <p class="role-instruction" data-i18n="roleAssignDesc">Vai trò của bạn đã được chọn ngẫu nhiên. Nhấn để xem (đừng để người khác nhìn!)</p>
+            
+            <div class="role-reveal-box" id="role-reveal-box">
+                <button class="btn btn-primary btn-lg" id="btn-reveal-role" data-i18n="revealRoleButton">
+                    🎭 Lật thẻ vai trò
+                </button>
+                
+                <div class="role-display" id="role-display" style="display:none;">
+                    <div class="role-icon" id="role-icon">🛡️</div>
+                    <h3><span id="role-name">Gác Cổng</span> (<span id="role-name-en">Moderator</span>)</h3>
+                    <p id="role-description">Bạn là người bảo vệ cộng đồng. Hãy gắn cờ và kiểm chứng tin giả!</p>
+                    <div class="role-objective">
+                        <strong data-i18n="objective">Mục tiêu:</strong> <span id="role-objective">Giữ Viral Meter < 15</span>
+                    </div>
+                    <div class="role-abilities">
+                        <strong data-i18n="abilities">Kỹ năng:</strong>
+                        <ul id="role-abilities"></ul>
+                    </div>
+                    <div class="role-reveal" id="role-reveal"></div>
+                </div>
+            </div>
+            
+            <button class="btn btn-primary btn-lg" id="start-game-btn" style="display:none;" data-i18n="startRound1Button">
+                Bắt đầu vòng 1 →
+            </button>
+        </div>
+    </section>
+
+    <!-- Play Screen -->
+    <section id="play-screen" class="screen">
+        <!-- Header -->
+        <header class="game-header">
+            <div class="header-left">
+                <div class="round-info">
+                    <span data-i18n="round">Vòng</span> <strong id="current-round">1</strong>/<strong id="max-rounds">6</strong>
+                </div>
+                <div class="current-player-info">
+                    <span data-i18n="turn">Lượt:</span> <strong id="current-player-name">Bạn</strong> <span id="current-player-role">🛡️</span>
+                </div>
+            </div>
+            
+            <div class="header-center">
+                <div class="viral-meter-container">
+                    <h4 data-i18n="viralMeter">🔥 Viral Meter</h4>
+                    <div class="meter-bar viral-meter-bar">
+                        <div class="meter-fill viral-fill" id="viral-meter-fill" style="width: 0%"></div>
+                    </div>
+                    <span id="viral-meter-value">0/15</span>
+                </div>
+            </div>
+            
+            <div class="header-right">
+                <div class="trust-meter-container">
+                    <h4 data-i18n="trustMeter">💎 Trust Meter</h4>
+                    <div class="meter-bar trust-meter-bar">
+                        <div class="meter-fill trust-fill" id="trust-meter-fill" style="width: 50%"></div>
+                    </div>
+                    <span id="trust-meter-value">5</span>
+                </div>
+                <div class="tokens-display">
+                    <span class="token-icon">✅</span>
+                    <span><span data-i18n="tokens">Tokens:</span> <strong id="fact-check-tokens">3</strong></span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Play Area -->
+        <div class="play-layout">
+            <!-- Feed Column -->
+            <main class="feed-container">
+                <h3 class="feed-title" data-i18n="feedTitle">📱 Feed tin tức</h3>
+                
+                <!-- Action Buttons -->
+                <div class="action-buttons-bar" style="display:flex; gap:10px; margin-bottom:20px;">
+                    <button class="btn btn-primary" id="share-action-btn" disabled data-i18n="shareBtn">📢 Share</button>
+                    <button class="btn btn-secondary" id="flag-action-btn" disabled data-i18n="flagBtn">🚩 Flag</button>
+                    <button class="btn btn-secondary" id="check-action-btn" disabled data-i18n="checkBtn">✅ Check</button>
+                </div>
+                
+                <div class="cards-grid" id="feed-cards">
+                    <!-- Cards will be inserted here -->
+                </div>
+            </main>
+            
+            <!-- Sidebar -->
+            <aside class="play-sidebar">
+                <!-- Players Panel -->
+                <div class="panel players-panel">
+                    <h4 data-i18n="playersTitle">👥 Người chơi</h4>
+                    <div class="players-list" id="players-list">
+                        <!-- Players will be inserted here -->
+                    </div>
+                </div>
+                
+                <!-- Action Log -->
+                <div class="panel log-panel">
+                    <h4 data-i18n="activityLog">📜 Nhật ký hành động</h4>
+                    <div class="action-log" id="action-log">
+                        <p class="log-entry" data-i18n="gameStartLog">Game bắt đầu - Vòng 1</p>
+                    </div>
+                </div>
+                
+                <!-- Instructions -->
+                <div class="panel instructions-panel">
+                    <h4 data-i18n="instructionsTitle">💡 Hướng dẫn</h4>
+                    <p><strong data-i18n="yourTurnMsg">Lượt của bạn!</strong> <span data-i18n="selectCardAction">Chọn 1 thẻ và 1 hành động:</span></p>
+                    <ul class="action-guide">
+                        <li><strong>📢 <span data-i18n="shareActionGuide">Share:</span></strong> <span data-i18n="shareActionDesc">+điểm nếu đúng, +virality</span></li>
+                        <li><strong>🚩 <span data-i18n="flagActionGuide">Flag:</span></strong> <span data-i18n="flagActionDesc">Chặn lan truyền</span></li>
+                        <li><strong>✅ <span data-i18n="checkActionGuide">Check:</span></strong> <span data-i18n="checkActionDesc">Lật nguồn (tốn 1 token)</span></li>
+                    </ul>
+                </div>
+            </aside>
+        </div>
+        
+        <!-- Action Modal -->
+        <div class="modal" id="action-modal">
+            <div class="modal-overlay"></div>
+            <div class="modal-content">
+                <h3 id="action-modal-title" data-i18n="chooseAction">Chọn hành động</h3>
+                <div id="action-modal-card-title"></div>
+                <p id="action-modal-description"></p>
+                <button class="btn btn-primary" id="confirm-action-btn" data-i18n="confirm">Xác nhận</button>
+                <button class="btn-cancel" id="cancel-action-btn" data-i18n="cancel">Hủy</button>
+            </div>
+        </div>
+        
+        <!-- Event Modal -->
+        <div class="modal" id="event-modal">
+            <div class="modal-overlay"></div>
+            <div class="modal-content">
+                <h3 id="event-title" data-i18n="eventTitle">📢 Sự kiện</h3>
+                <p id="event-description"></p>
+                <p id="event-effect"></p>
+                <button class="btn btn-primary" id="event-continue-btn" data-i18n="continue">Tiếp tục</button>
+            </div>
+        </div>
+        
+        <!-- Round End Modal -->
+        <div class="modal" id="round-summary-modal">
+            <div class="modal-overlay"></div>
+            <div class="modal-content round-summary">
+                <h3><span data-i18n="roundEnd">Kết thúc vòng</span> <span id="round-number-summary">1</span></h3>
+                <div class="stat-row">
+                    <span data-i18n="viralMeter">Viral Meter:</span> <strong id="viral-score-summary">0</strong>
+                </div>
+                <div class="stat-row">
+                    <span data-i18n="trustMeter">Trust Meter:</span> <strong id="trust-score-summary">5</strong>
+                </div>
+                <button class="btn btn-primary" id="round-summary-continue-btn" data-i18n="nextRoundButton">Vòng tiếp theo →</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results Screen -->
+    <section id="results-screen" class="screen">
+        <div class="container">
+            <h2 id="game-result-title" data-i18n="gameResultTitle">🏆 Kết quả trận đấu</h2>
+            
+            <div class="result-banner" id="result-banner">
+                <div class="result-icon" id="result-icon">🛡️</div>
+                <p id="game-result-message">Cộng đồng được bảo vệ an toàn khỏi tin giả!</p>
+            </div>
+            
+            <div class="final-stats">
+                <div class="stat-box">
+                    <span class="stat-label" data-i18n="finalViralMeter">Viral Meter cuối</span>
+                    <span class="stat-value" id="final-viral">12</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-label" data-i18n="finalTrustMeter">Trust Meter</span>
+                    <span class="stat-value" id="final-trust">7</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-label" data-i18n="roundsPlayed">Số vòng đã chơi</span>
+                    <span class="stat-value" id="final-rounds">6</span>
+                </div>
+            </div>
+            
+            <div class="players-scores">
+                <h3 data-i18n="scoreboard">📊 Bảng điểm người chơi</h3>
+                <div class="scoreboard" id="scoreboard-list"></div>
+            </div>
+            
+            <div class="learning-section">
+                <h3 data-i18n="learningSection">🎓 Bạn đã học được gì?</h3>
+                
+                <!-- Summary -->
+                <div id="learning-summary" class="learning-summary"></div>
+                
+                <!-- Learning Grid -->
+                <div class="learning-grid">
+                    <div class="learning-card">
+                        <h4 data-i18n="learnRedFlags">🚩 Dấu hiệu cảnh báo</h4>
+                        <ul id="learn-flags" class="learning-list"></ul>
+                    </div>
+                    <div class="learning-card">
+                        <h4 data-i18n="learnMistakes">❌ Rút kinh nghiệm</h4>
+                        <ul id="learn-mistakes" class="learning-list"></ul>
+                    </div>
+                </div>
+                
+                <!-- Role Tips -->
+                <div class="learning-card">
+                    <h4 data-i18n="learnTips">💡 Mẹo cho lần sau</h4>
+                    <ul id="learn-tips" class="learning-list"></ul>
+                </div>
+                
+                <!-- Quiz -->
+                <div class="learning-card quiz-section">
+                    <h4 data-i18n="learnQuiz">🎯 Quiz nhanh (3 câu)</h4>
+                    <div id="quiz-items"></div>
+                    <button id="quiz-submit" class="btn btn-secondary" disabled data-i18n="learnSubmit">Nộp bài</button>
+                    <div id="quiz-result" class="quiz-result"></div>
+                </div>
+                
+                <!-- Actions -->
+                <div class="learning-actions">
+                    <button id="learn-copy" class="btn btn-outline" data-i18n="learnCopy">📋 Sao chép 5 điều rút ra</button>
+                    <button id="learn-save" class="btn btn-outline" data-i18n="learnSave">💾 Lưu vào nhật ký</button>
+                </div>
+            </div>
+            
+            <div class="results-actions">
+                <button class="btn btn-primary btn-lg" id="play-again-btn" data-i18n="playAgainBtn">
+                    🔄 Chơi lại
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast" style="display:none;">
+        <div class="toast-icon" id="toast-icon">ℹ️</div>
+        <div class="toast-content">
+            <div class="toast-title" id="toast-title" data-i18n="notification">Thông báo</div>
+            <div class="toast-message" id="toast-message">Nội dung thông báo</div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="translations.js"></script>
+    <script src="cards.js"></script>
+    <script src="events.js"></script>
+    <script src="roles.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>

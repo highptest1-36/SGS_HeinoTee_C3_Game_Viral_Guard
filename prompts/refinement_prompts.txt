@@ -1,0 +1,446 @@
+# Refinement & Iteration Prompts
+
+## Gameplay Balance
+
+### Prompt 1: Clickbait Win Rate Testing
+```
+Test Clickbait win probability across difficulties:
+
+Easy mode (threshold 18, tokens 4):
+- Expected Clickbait win rate: ~30-35%
+- Team has more resources to counter
+
+Medium mode (threshold 15, tokens 3):
+- Expected win rate: ~45-50% (balanced)
+- Both sides have fair chance
+
+Hard mode (threshold 12, tokens 3):
+- Expected win rate: ~60-65%
+- Clickbait favored, team must play perfectly
+
+Adjust card base virality, event effects, AI behavior if rates are off.
+```
+
+### Prompt 2: Fact-Checker Impact
+```
+Measure Fact-Checker role impact on win rate:
+
+With Fact-Checker enabled:
+- Team should win 5-10% more often
+- Tokens should feel valuable but not overpowered
+- Each token swing ~1-2 virality difference
+
+Without Fact-Checker:
+- More Moderators compensate with flags
+- Slightly Clickbait-favored
+- Forces more careful flagging
+
+Test both configurations for balance.
+```
+
+### Prompt 3: Card Distribution Balance
+```
+Verify card type distribution feels fair:
+
+Current: 10 false, 7 misleading, 5 true, 2 satire, 1 special
+- False cards (40%): Enough for Clickbait to exploit
+- Misleading (28%): Create decision tension
+- True (20%): Reward careful fact-checking
+- Satire (8%): Add humor, confusion
+- Special (4%): Unique mechanics
+
+Should feel like realistic social media feed (more junk than quality).
+```
+
+## User Experience
+
+### Prompt 4: Onboarding Flow
+```
+Improve first-time player experience:
+
+How to Play screen:
+- Keep explanations under 3 minutes reading time
+- Use visual examples (mock cards)
+- Highlight most important rule: "Pause before share"
+- Add "Skip" button for returning players
+
+Role reveal:
+- Add 3-second dramatic pause before reveal
+- Clear explanation of win condition
+- Emphasize secret identity (for Clickbait)
+
+First round guidance:
+- Highlight current player indicator
+- Tooltip on first action selection
+- Explain meter threshold
+```
+
+### Prompt 5: Feedback Clarity
+```
+Ensure player understands consequences:
+
+Action modal:
+- Show predicted Viral Meter change
+- Warn if action helps Clickbait
+- Display remaining tokens before Check action
+
+Action log:
+- Use color coding (red=bad for team, green=good)
+- Include emoji indicators
+- Show round number for context
+
+Round summary:
+- Compare to previous round (↑↓ arrows)
+- Highlight critical threshold (< 3 points away)
+- Suggest strategy for next round
+```
+
+### Prompt 6: Mobile Responsiveness
+```
+Optimize for mobile gameplay:
+
+Touch targets:
+- Minimum 44x44px for buttons
+- Larger card click area
+- Swipe to dismiss modals (optional)
+
+Layout adjustments:
+- Stack sidebar below feed on mobile
+- Reduce action log to last 5 entries
+- Simplify meter display (remove numbers, keep icon)
+
+Performance:
+- Test on iPhone SE, Android mid-range
+- Reduce animation complexity on mobile
+- Lazy load event descriptions
+```
+
+## Educational Effectiveness
+
+### Prompt 7: Learning Outcome Assessment
+```
+Measure if players learn misinformation signals:
+
+Results screen additions:
+- Quiz: "Which signal did this card show?" (3 examples)
+- Reflection: "Will you check sources before sharing now?"
+- Share results: "I learned about {signals} in Viral Guard!"
+
+Track which cards were shared/flagged:
+- Display most-shared false info
+- Highlight correctly-flagged cards
+- Show fact-check success rate
+
+Post-game tips:
+- Link to VAFC.org.vn
+- Google Reverse Image Search tutorial
+- "How to report misinformation" guide
+```
+
+### Prompt 8: Real-World Application
+```
+Bridge game mechanics to real behavior:
+
+End screen prompts:
+- "Before sharing news online, you should..."
+  ✅ Check the source
+  ✅ Look for red flags
+  ✅ Use fact-checking sites
+  ❌ Share immediately
+
+"3 Things to Remember":
+1. Pause before you share
+2. Emotional headlines = red flag
+3. Verify with trusted sources
+
+Link to resources:
+- VAFC.org.vn (Vietnam fact-check)
+- WHO Infodemic guides
+- First Draft News checklist
+```
+
+## Technical Optimization
+
+### Prompt 9: Performance Profiling
+```
+Optimize game performance:
+
+Rendering:
+- Use DocumentFragment for card grid
+- Debounce meter updates (100ms)
+- Cache DOM queries (store in variables)
+
+Memory:
+- Clear usedCards when deck reshuffles
+- Limit action log to 20 entries
+- Remove event listeners on screen change
+
+Loading:
+- Inline critical CSS
+- Minify JS for production
+- Preload system fonts
+- Remove console.logs
+```
+
+### Prompt 10: Browser Compatibility
+```
+Test across browsers:
+
+Chrome/Edge (Chromium):
+- Primary target, full features
+- Test CSS Grid, CSS variables, ES6
+
+Firefox:
+- Test backdrop-filter fallback
+- Verify event listeners
+- Check emoji rendering
+
+Safari (if available):
+- Test on iOS Safari
+- Verify touch events
+- Check CSS animations
+
+Fallbacks:
+- backdrop-filter → solid background
+- CSS Grid → Flexbox for old browsers (optional)
+```
+
+## UI/UX Polish
+
+### Prompt 11: Animation Smoothness
+```
+Refine animations for professional feel:
+
+Card entrance:
+- Stagger animation (50ms delay each)
+- Fade in + slide up
+- Spring easing (cubic-bezier(0.68, -0.55, 0.265, 1.55))
+
+Meter updates:
+- Smooth width transition (0.5s)
+- Sync meter fill with number counter
+- Add "ding" effect (visual pulse) on change
+
+Modal transitions:
+- Backdrop fades in first (0.2s)
+- Modal slides in (0.3s, delayed 0.1s)
+- Reverse order on close
+
+Button interactions:
+- Hover: scale(1.05) + brightness(1.1)
+- Active: scale(0.98)
+- Disabled: opacity(0.5) + cursor not-allowed
+```
+
+### Prompt 12: Visual Hierarchy
+```
+Improve information scanning:
+
+Card priority:
+1. Title (largest, bold)
+2. Topic tag + Virality (header)
+3. Flag/Check status (badges)
+4. Reveal content (expandable)
+
+Play screen priority:
+1. Current cards (central focus)
+2. Meters (top, always visible)
+3. Current player indicator (prominent)
+4. Action buttons (fixed position)
+5. Log (secondary, scrollable)
+
+Use size, color, position to guide attention.
+```
+
+### Prompt 13: Error States
+```
+Handle edge cases gracefully:
+
+Empty deck:
+- Auto-reshuffle with animation
+- Show "Shuffling..." toast notification
+
+No tokens remaining:
+- Disable Check button with tooltip
+- Visual indicator (🎫 0/3)
+- Suggest flagging instead
+
+Invalid action:
+- Red shake animation
+- Error message: "Cannot {action}: {reason}"
+- Auto-dismiss after 2s
+
+Network issues (future):
+- Retry button
+- Offline mode indicator
+```
+
+## Content Refinement
+
+### Prompt 14: Vietnamese Localization
+```
+Improve Vietnamese text quality:
+
+Tone:
+- Use casual, youth-friendly language
+- Avoid overly formal academic tone
+- Include internet slang where appropriate (e.g., "báo cáo", "share thoải mái")
+
+Clarity:
+- Break long sentences (max 20 words)
+- Use active voice
+- Avoid ambiguous pronouns
+
+Cultural relevance:
+- Reference Vietnamese platforms (Facebook, Zalo)
+- Use local examples (CCCD, KOL, Hà Nội)
+- Respect cultural sensitivities
+```
+
+### Prompt 15: Card Headline Realism
+```
+Make card headlines more authentic:
+
+Patterns to mimic:
+- ALL CAPS for sensational claims
+- Multiple exclamation marks!!!
+- Urgent language ("KHẨN", "NÓNG")
+- Promise of secrets ("Bí mật...", "Sự thật...")
+- Call to share ("Chia sẻ ngay", "Tag bạn bè")
+
+Avoid:
+- Obviously fake (breaks immersion)
+- Offensive content (keep PG-13)
+- Real ongoing sensitive events
+
+Goal: Player thinks "I've seen this before!"
+```
+
+### Prompt 16: Reveal Text Educational Value
+```
+Enhance explanation quality:
+
+Structure each reveal:
+1. Direct answer (True/False/Misleading)
+2. Why? (Evidence, expert consensus)
+3. Context (What's missing, exaggerated)
+4. Source (WHO, CDC, research journal)
+5. Action (How to verify next time)
+
+Example:
+"FALSE. Nước chanh không diệt virus.
+WHO xác nhận không có thực phẩm nào giết virus trong cơ thể.
+Nước chanh tốt cho sức khỏe nhưng không chữa COVID-19.
+Nguồn: WHO Myth Busters, 2020.
+Kiểm chứng: Tìm trên who.int hoặc VAFC.org.vn"
+
+Max 100 words, readable in 10 seconds.
+```
+
+## Accessibility Improvements
+
+### Prompt 17: Color Blindness Support
+```
+Ensure accessibility for color-blind players:
+
+Don't rely on color alone:
+- Red flags: Use 🚩 emoji + "Đã gắn cờ" text
+- Checked cards: Use ✅ emoji + "Đã kiểm chứng" text
+- Role colors: Icon + name + color
+
+Test with simulators:
+- Deuteranopia (red-green)
+- Protanopia (red-green)
+- Tritanopia (blue-yellow)
+
+Use patterns/shapes as secondary indicators.
+```
+
+### Prompt 18: Keyboard Navigation
+```
+Full keyboard support:
+
+Tab order:
+1. Menu buttons (Start, How to Play)
+2. Card grid (left to right, top to bottom)
+3. Action buttons (Share, Flag, Check)
+4. Modal buttons (Confirm, Cancel)
+5. Results (Play Again)
+
+Shortcuts (optional):
+- S: Select Share action
+- F: Select Flag action
+- C: Select Check action
+- Enter: Confirm action
+- Esc: Cancel/close modal
+- Space: Select card
+
+Visual focus indicators on all elements.
+```
+
+## Final Polish
+
+### Prompt 19: Juice & Polish
+```
+Add satisfying "game feel":
+
+Positive actions (correct flag, debunk):
+- ✅ Success particle effect
+- +Score number flies up
+- Brief screen flash (green tint)
+- Satisfying "ding" sound effect (optional)
+
+Negative actions (wrong flag, viral surge):
+- ⚠️ Warning shake
+- Red pulse on meter
+- Slower, heavier animation
+
+Milestone moments:
+- Role reveal: Dramatic 2-second build-up
+- Viral threshold reached: Screen shake, red overlay
+- Game won: Confetti particles (🎉), victory fanfare
+
+Small touches that feel great.
+```
+
+### Prompt 20: Pre-Launch Checklist
+```
+Final review before submission:
+
+Functionality:
+✅ All 5 screens work
+✅ All 3 actions execute correctly
+✅ AI players behave reasonably
+✅ Win/lose conditions trigger
+✅ Difficulty settings apply
+
+Content:
+✅ 25 cards load properly
+✅ 10 events display correctly
+✅ No typos in Vietnamese text
+✅ Educational content accurate
+
+Technical:
+✅ No console errors
+✅ Works in Chrome, Firefox, Edge
+✅ Mobile responsive (test on phone)
+✅ Game runs offline (no CDN dependencies)
+
+Polish:
+✅ Animations smooth (60fps)
+✅ Loading states display
+✅ Error states handled
+✅ Instructions clear
+
+Documentation:
+✅ README.md complete
+✅ Prompts folder filled
+✅ Code comments added
+✅ Project structure clean
+
+Test with 3 different players for feedback!
+```
+
+---
+
+These refinement prompts ensure the game evolves from functional prototype to polished, educational experience. Each iteration improves balance, usability, and learning outcomes.

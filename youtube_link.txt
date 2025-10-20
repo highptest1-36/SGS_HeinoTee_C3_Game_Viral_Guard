@@ -1,0 +1,25 @@
+YouTube Demo Video URL (Maximum 7 minutes with voice-over):
+
+https://www.youtube.com/watch?v=ceGdHqeiUMw
+
+Instructions:
+1. Upload your 7-minute game demo video to YouTube
+2. Replace the placeholder above with your actual YouTube link
+3. Ensure the video includes:
+   - Game overview and purpose
+   - Gameplay demonstration
+   - Key features showcase
+   - Educational value explanation
+   - Voice-over commentary throughout
+
+Video Content Checklist:
+☐ Introduction (30 seconds)
+☐ Menu screen demonstration
+☐ Gameplay walkthrough (3-4 minutes)
+☐ Role mechanics explanation
+☐ Learning panel showcase
+☐ Conclusion and impact statement
+☐ Clear audio narration
+☐ No copyrighted music
+
+Total Duration: Maximum 7 minutes
